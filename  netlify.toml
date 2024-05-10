@@ -1,0 +1,2 @@
+[build]
+command = "nvm install && nvm use && npm ci && npm run build"
