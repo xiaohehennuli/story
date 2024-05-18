@@ -101,7 +101,7 @@
 
   .card-desc {
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 2.05rem;
     color: var(--fontColor);
     letter-spacing: 1px;
     line-height: 1.5;
@@ -117,6 +117,7 @@
     bottom: 15px;
     color: #999999;
     font-weight: 500;
+    font-size: 1.5rem;
   }
 
   @media screen and (max-width: 1300px) {

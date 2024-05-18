@@ -10,6 +10,7 @@ import mavonEditor from 'mavon-editor'
 //引入js
 import './utils/live2d'
 import './utils/title'
+import VueTypedJs from 'vue-typed-js'
 //引入css
 import './assets/css/animation.css'
 import './assets/css/index.css'
@@ -18,9 +19,15 @@ import './assets/css/color.css'
 import './assets/css/markdown-highlight.css'
 import './assets/css/font-awesome.min.css'
 import 'mavon-editor/dist/css/index.css'
+import './styles/index.scss'
+
 
 import {vueBaberrage} from 'vue-baberrage'
+import VueTimeline from "@growthbunker/vuetimeline";
 
+Vue.use(VueTimeline,{
+
+});
 Vue.use(ElementUI)
 Vue.use(vueBaberrage)
 Vue.use(mavonEditor)
@@ -30,6 +37,8 @@ Vue.prototype.$common = common
 Vue.prototype.$constant = constant
 
 Vue.config.productionTip = false
+
+Vue.use(VueTypedJs)
 
 new Vue({
   router,

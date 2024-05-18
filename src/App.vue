@@ -1,31 +1,37 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {}
+    return {};
   },
 
   computed: {},
 
   watch: {},
 
-  created() {
-
-  },
+  created() {},
 
   mounted() {
-
+    document.addEventListener("contextmenu", function (event) {
+      event.preventDefault();
+    });
+    document.addEventListener("keydown", function (event) {
+      if (
+        event.keyCode === 123 ||
+        (event.ctrlKey && event.shiftKey && event.keyCode === 73)
+      ) {
+        event.preventDefault();
+      }
+    });
   },
 
-  methods: {}
-}
+  methods: {},
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

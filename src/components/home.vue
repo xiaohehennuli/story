@@ -39,13 +39,13 @@
         <!-- 导航列表 -->
         <div v-else>
           <ul class="scroll-menu">
-            <li @click="$router.push({ path: '/' })">
-              <div class="my-menu">🏡 <span>日记</span></div>
+            <li @click="$router.push({ path: '/email' })">
+              <div class="my-menu"><span>一封给小白的信</span></div>
             </li>
 
             <el-dropdown :hide-timeout="500" placement="bottom">
-              <li>
-                <div class="my-menu">📒 <span>时间线</span></div>
+              <li @click="$router.push({ path: '/line' })">
+                <div class="my-menu"><span>时间线</span></div>
               </li>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item
@@ -66,52 +66,18 @@
               </el-dropdown-menu>
             </el-dropdown>
 
-            <!-- 家 -->
-            <li @click="$router.push({ path: '/love' })">
+            <!-- 旅游 -->
+            <li @click="$router.push({ path: '/travel' })">
               <div class="my-menu">
                 <span>旅游</span>
               </div>
             </li>
 
-            <!-- 个人中心 -->
-            <li>
-              <el-dropdown placement="bottom">
-                <el-avatar
-                  class="user-avatar"
-                  :size="36"
-                  style="margin-top: 12px"
-                  :src="
-                    !$common.isEmpty($store.state.currentUser)
-                      ? $store.state.currentUser.avatar
-                      : $store.state.webInfo.avatar
-                  "
-                >
-                </el-avatar>
-
-                <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item
-                    @click.native="$router.push({ path: '/user' })"
-                    v-if="!$common.isEmpty($store.state.currentUser)"
-                  >
-                    <i class="fa fa-user-circle" aria-hidden="true"></i>
-                    <span>个人中心</span>
-                  </el-dropdown-item>
-                  <el-dropdown-item
-                    @click.native="logout()"
-                    v-if="!$common.isEmpty($store.state.currentUser)"
-                  >
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                    <span>退出</span>
-                  </el-dropdown-item>
-                  <el-dropdown-item
-                    @click.native="$router.push({ path: '/user' })"
-                    v-if="$common.isEmpty($store.state.currentUser)"
-                  >
-                    <i class="fa fa-sign-in" aria-hidden="true"></i>
-                    <span>登陆</span>
-                  </el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown>
+            <!-- 家 -->
+            <li @click="$router.push({ path: '/love' })">
+              <div class="my-menu">
+                <span></span>
+              </div>
             </li>
           </ul>
         </div>
@@ -140,39 +106,6 @@
         </svg>
       </div>
 
-      <el-popover placement="left" :close-delay="500" trigger="hover">
-        <div slot="reference">
-          <i
-            class="fa fa-cog iconRotate"
-            style="color: var(--black)"
-            aria-hidden="true"
-          ></i>
-        </div>
-        <div class="my-setting">
-          <div>
-            <!-- 太阳按钮 -->
-            <i
-              v-if="isDark"
-              class="el-icon-sunny iconRotate"
-              @click="changeColor()"
-            ></i>
-            <!-- 月亮按钮 -->
-            <i
-              v-else
-              class="fa fa-moon-o"
-              aria-hidden="true"
-              @click="changeColor()"
-            ></i>
-          </div>
-          <div>
-            <i
-              class="fa fa-snowflake-o"
-              aria-hidden="true"
-              @click="changeMouseAnimation()"
-            ></i>
-          </div>
-        </div>
-      </el-popover>
     </div>
 
     <!-- 点击动画 -->
@@ -206,80 +139,16 @@
     >
       <div>
         <ul class="small-menu">
-          <li @click="smallMenu({ path: '/' })">
-            <div>🏡 <span>首页</span></div>
+          <li @click="smallMenu({ path: '/email' })">
+            <div><span>给小白的一封信</span></div>
           </li>
-
-          <li>
-            <div>📒 <span>记录</span></div>
-            <div>
-              <div
-                v-for="(menu, index) in sortInfo"
-                :key="index"
-                class="sortMenu"
-                @click="
-                  smallMenu({ path: '/sort', query: { sortId: menu.id } })
-                "
-              >
-                {{ menu.sortName }}
-              </div>
-            </div>
+          <li @click="$router.push({ path: '/line' })">
+            <div class="my-menu">📒 <span>时间线</span></div>
           </li>
-
-          <!-- 家 -->
-          <li @click="smallMenu({ path: '/love' })">
-            <div>❤️‍🔥 <span>家</span></div>
-          </li>
-
-          <!--          &lt;!&ndash; 旅拍 &ndash;&gt;-->
-          <!--          <li @click="smallMenu({path: '/travel'})">-->
-          <!--            <div>-->
-          <!--              🌏 <span>旅拍</span>-->
-          <!--            </div>-->
-          <!--          </li>-->
-
-          <!-- 百宝箱 -->
-          <li @click="smallMenu({ path: '/favorite' })">
-            <div>🧰 <span>百宝箱</span></div>
-          </li>
-
           <!-- 留言 -->
-          <li @click="smallMenu({ path: '/message' })">
-            <div>📪 <span>留言</span></div>
+          <li @click="smallMenu({ path: '/travel' })">
+            <div><span>旅拍</span></div>
           </li>
-
-          <!-- 聊天室 -->
-          <li @click="goIm()">
-            <div>💬 <span>联系我</span></div>
-          </li>
-
-          <!-- 后台 -->
-          <li @click="goAdmin()">
-            <div>💻️ <span>后台</span></div>
-          </li>
-
-          <template v-if="$common.isEmpty($store.state.currentUser)">
-            <li @click="smallMenu({ path: '/user' })">
-              <div>
-                <i class="fa fa-sign-in" aria-hidden="true"></i>
-                <span>&nbsp;登录</span>
-              </div>
-            </li>
-          </template>
-          <template v-else>
-            <li @click="smallMenu({ path: '/user' })">
-              <div>
-                <i class="fa fa-user-circle" aria-hidden="true"></i>
-                <span>&nbsp;个人中心</span>
-              </div>
-            </li>
-            <li @click="smallMenuLogout()">
-              <div>
-                <i class="fa fa-sign-out" aria-hidden="true"></i>
-                <span>&nbsp;退出</span>
-              </div>
-            </li>
-          </template>
         </ul>
       </div>
     </el-drawer>
@@ -299,6 +168,7 @@ export default {
       scrollTop: 0,
       toolbarDrawer: false,
       mobile: false,
+      showMenu:true
     };
   },
   mounted() {
@@ -353,9 +223,6 @@ export default {
       visible: true,
     };
     this.$store.commit("changeToolbarStatus", toolbarStatus);
-    this.getWebInfo();
-    this.getSysConfig();
-    this.getSortInfo();
 
     this.mobile = document.body.clientWidth < 1100;
 
@@ -407,53 +274,6 @@ export default {
 
     goAdmin() {
       window.open(this.$constant.webURL + "/admin");
-    },
-
-    logout() {
-      this.$http
-        .get(this.$constant.baseURL + "/user/logout")
-        .then((res) => {})
-        .catch((error) => {
-          this.$message({
-            message: error.message,
-            type: "error",
-          });
-        });
-      this.$store.commit("loadCurrentUser", {});
-      localStorage.removeItem("userToken");
-      this.$router.push({ path: "/" });
-    },
-    getWebInfo() {
-      this.$http
-        .get(this.$constant.baseURL + "/webInfo/getWebInfo")
-        .then((res) => {
-          if (!this.$common.isEmpty(res.data)) {
-            this.$store.commit("loadWebInfo", res.data);
-            localStorage.setItem("defaultStoreType", res.data.defaultStoreType);
-          }
-        })
-        .catch((error) => {
-          this.$message({
-            message: error.message,
-            type: "error",
-          });
-        });
-    },
-    getSysConfig() {
-      this.$http
-        .get(this.$constant.baseURL + "/sysConfig/listSysConfig")
-        .then((res) => {
-          if (!this.$common.isEmpty(res.data)) {
-            this.$store.commit("loadSysConfig", res.data);
-            this.buildCssPicture();
-          }
-        })
-        .catch((error) => {
-          this.$message({
-            message: error.message,
-            type: "error",
-          });
-        });
     },
     buildCssPicture() {
       let root = document.querySelector(":root");
@@ -574,7 +394,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .toolbar-content {
   width: 100%;
   height: 60px;

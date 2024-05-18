@@ -30,6 +30,9 @@
     color: var(--white);
     border-radius: 5px;
     padding: 8px;
+     span {
+      font-size: 14px;
+     }
   }
 
   .myTag:hover {
