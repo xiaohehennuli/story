@@ -32,7 +32,7 @@ export default (str, length) => {
   } else {
     const resultList = []
     const phaseList = [phaseWrapList(str)[0] + '毛']
-    console.log('phaseList',phaseList)
+    console.log('str!!!',phaseList)
     phaseList.forEach(item => {
       resultList.push(line(item, length))
     })
