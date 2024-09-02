@@ -168,6 +168,15 @@ export default {
           color: "blue",
         },
         {
+          date: new Date("2024-07-23"),
+          title: "重庆！我们来辣！！(2024-07-23)",
+          content: "呜呜呜两个傻子，在重庆被热成狗，但是拍出了这一年来我们最满意的照片！！！！",
+          img: "https://xiaoheimg-1259001954.cos.ap-nanjing.myqcloud.com/chongqing1.jpg",
+          tag: "日常",
+          icon: "code",
+          color: "blue",
+        },
+        {
           date: 'now',
           title: "小白和小鸡毛的故事还在继续！敬请期待！",
           tag: "故事",

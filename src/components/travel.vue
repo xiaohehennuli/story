@@ -358,6 +358,62 @@ const PHONE_LIST = [
     createTime: "2023-05-03",
     tag: "青岛",
   },
+  {
+    cover:
+      "https://xiaoheimg-1259001954.cos.ap-nanjing.myqcloud.com/chongqing1.jpg",
+    title: "年度最佳照片！！！！",
+    createTime: "2023-05-03",
+    tag: "重庆",
+  },
+  {
+    cover:
+      "https://xiaoheimg-1259001954.cos.ap-nanjing.myqcloud.com/chongqing2.jpg",
+    title: "回眸一笑百媚生~~~~",
+    createTime: "2023-05-03",
+    tag: "重庆",
+  },
+  {
+    cover:
+      "https://xiaoheimg-1259001954.cos.ap-nanjing.myqcloud.com/chongqing3.jpg",
+    title: "这张小白好酷！好有氛围感！",
+    createTime: "2023-05-03",
+    tag: "重庆",
+  },
+  {
+    cover:
+      "https://xiaoheimg-1259001954.cos.ap-nanjing.myqcloud.com/chongqing4.jpg",
+    title: "提着灯笼烫小白的手！嘿嘿",
+    createTime: "2023-05-03",
+    tag: "重庆",
+  },
+  {
+    cover:
+      "https://xiaoheimg-1259001954.cos.ap-nanjing.myqcloud.com/chongqing5.jpg",
+    title: "帅鸡毛！",
+    createTime: "2023-05-03",
+    tag: "重庆",
+  },
+  {
+    cover:
+      "https://xiaoheimg-1259001954.cos.ap-nanjing.myqcloud.com/chongqing6.jpg",
+    title: "哈啤酒哈啤酒！！！",
+    createTime: "2023-05-03",
+    tag: "重庆",
+  },
+  {
+    cover:
+      "https://xiaoheimg-1259001954.cos.ap-nanjing.myqcloud.com/chongqing8.jpg",
+    title: "没见过这种商场~我的评价是不如荆门万达！",
+    createTime: "2023-05-03",
+    tag: "重庆",
+  },
+  {
+    cover:
+      "https://xiaoheimg-1259001954.cos.ap-nanjing.myqcloud.com/chongqing7.jpg",
+    title: "小白羞羞！坐飞机怕怕~",
+    createTime: "2023-05-03",
+    tag: "重庆",
+  },
 ];
 
 export default {
@@ -419,6 +475,10 @@ export default {
         {
           classify: "荆门",
           count: 3,
+        },
+        {
+          classify: "重庆",
+          count: 7,
         },
       ];
       this.photoPagination = {
@@ -501,6 +561,11 @@ export default {
           name: "青岛",
           location: new qq.maps.LatLng(36.0671, 120.3826),
           title: "小白和小鸡毛的第一次旅游！青岛啤酒得劲！",
+        },
+        {
+          name: "重庆",
+          location: new qq.maps.LatLng(29.568242,106.557287),
+          title: "好热好热！！！！！！真变成了两条狗啦~",
         },
         {
           name: "郑州",
